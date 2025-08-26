@@ -56,6 +56,15 @@ inputs:
       results to the repository's security tab.
     required: false
     default: "true"
+  format:
+    description: |
+      The format that zizmor should output in. Will only be used if
+      'advanced-security' is 'false'.
+
+      Can be 'plain' (default), 'json', 'json-v1', 'sarif' (default
+      if 'advanced-security' is 'true'), or 'github'.
+    required: false
+    default: "plain"
 
 runs:
   using: composite
@@ -73,6 +82,7 @@ runs:
         GHA_ZIZMOR_VERSION: ${{ inputs.version }}
         GHA_ZIZMOR_TOKEN: ${{ inputs.token }}
         GHA_ZIZMOR_ADVANCED_SECURITY: ${{ inputs.advanced-security }}
+        GHA_ZIZMOR_FORMAT: ${{ inputs.format }}
       shell: bash
 
     - name: Upload SARIF file to GitHub Advanced Security

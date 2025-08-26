@@ -46,6 +46,8 @@ arguments+=("--persona=${GHA_ZIZMOR_PERSONA}")
 if [[ "${GHA_ZIZMOR_ADVANCED_SECURITY}" == "true" ]]; then
     arguments+=("--format=sarif")
     output "sarif-file" "${output}"
+elif [[ -n "${GHA_ZIZMOR_FORMAT}" ]]; then
+    arguments+=("--format=${GHA_ZIZMOR_FORMAT}")
 fi
 
 [[ "${GHA_ZIZMOR_ONLINE_AUDITS}" == "true" ]] || arguments+=("--no-online-audits")

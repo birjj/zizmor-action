@@ -220,6 +220,16 @@ when [`advanced-security`](#advanced-security) is enabled.
 will not upload results to Advanced Security, and will instead
 print them to the console.
 
+### `format`
+
+*Default*: `plain`
+
+`format` controls the output format to use when running `zizmor`.
+It must be one of the values `zizmor` accepts for its `--format`
+parameter.
+
+Will be ignored if `advanced-security` is `true`.
+
 ## Permissions
 
 `zizmor-action` requires different permissions depending on how you use it.
